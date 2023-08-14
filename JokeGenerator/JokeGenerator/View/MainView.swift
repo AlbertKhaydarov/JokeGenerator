@@ -69,6 +69,28 @@ class MainView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    lazy var jokeSetupLabelstackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.layer.cornerRadius = 8
+        stackView.layer.borderWidth = 2
+        stackView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        stackView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        stackView.layoutMargins = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        return stackView
+    }()
+    
+    lazy var jokeSetupLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Setup"
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     lazy var jokeTextLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 195, height: 300))
@@ -76,6 +98,8 @@ class MainView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+   
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -104,10 +128,14 @@ class MainView: UIView {
         
         jokeTypeLabelstackView.addArrangedSubview(jokeTypeLabel)
         jokeTypeLabelstackView.addArrangedSubview(jokeTypeTextLabel)
+        
+        jokeSetupLabelstackView.addArrangedSubview(jokeSetupLabel)
+        jokeSetupLabelstackView.addArrangedSubview(jokeTextLabel)
        
         stackView.addArrangedSubview(jokeIdLabelstackView)
         stackView.addArrangedSubview(jokeTypeLabelstackView)
-        stackView.addArrangedSubview(jokeTextLabel)
+        stackView.addArrangedSubview(jokeSetupLabelstackView)
+        
         addSubview(stackView)
 
         NSLayoutConstraint.activate([
@@ -118,6 +146,10 @@ class MainView: UIView {
             jokeTypeLabelstackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
             jokeTypeLabelstackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
             jokeTypeLabelstackView.heightAnchor.constraint(equalToConstant: 64),
+            
+            jokeSetupLabelstackView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            jokeSetupLabelstackView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+//            jokeTypeLabelstackView.heightAnchor.constraint(equalToConstant: 244),
             
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
