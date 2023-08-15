@@ -18,9 +18,4 @@ struct JokeResponse: Decodable {
     var id: Int
 }
 
-struct API {
-    static let scheme = "https"
-    static let host = "official-joke-api.appspot.com"
-    static let path = "/random_joke"
 
-}
