@@ -3,7 +3,7 @@
 //  JokeGenerator
 //
 //  Created by Admin on 14.08.2023.
-//
+
 
 import Foundation
 
@@ -23,8 +23,6 @@ final class NetworkService{
                     return
                 }
                 completion(.success(data))
-                //                    let someString = String(data: data, encoding: .utf8)
-                //                    print(someString ?? "no data")
             }
         }
         searchTask.resume()
@@ -49,6 +47,7 @@ final class NetworkService{
             }
         }
     }
+    
    private func getUrl() -> URL{
         var components = URLComponents()
         components.scheme = API.scheme
