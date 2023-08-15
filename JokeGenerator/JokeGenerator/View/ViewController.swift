@@ -30,7 +30,7 @@ class ViewController: UIViewController, ButtonFuncDelegate  {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         mainView.addTopAndBottomBorders(label: mainView.jokeTextLabel)
-    }
+    }    
     
     func showPunchline() {
         guard let text = self.jokeResponse?.punchline else {return}
